@@ -29,3 +29,19 @@ Centerline + Diameter
 % Stenosis
 ```
 
+```bash
+Binary mask (yours)
+   ↓
+Mask cleanup  ← REQUIRED
+   ↓
+Single-vessel extraction
+   ↓
+Skeleton (centerline)
+   ↓
+Distance transform
+   ↓
+Diameter profile
+   ↓
+% stenosis
+```
+
