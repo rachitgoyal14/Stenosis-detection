@@ -7,3 +7,9 @@ stenosis/
 test/
 train/
 valid/
+masks_improved/
+runs/
+valid/
+resultsss/
+resultss/
+roi_meta/

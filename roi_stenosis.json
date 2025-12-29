@@ -1,0 +1,10 @@
+{
+  "roi_image": "roi_stenosis.png",
+  "yolo_box": [
+    166,
+    110,
+    244,
+    154
+  ],
+  "confidence": 0.7272350788116455
+}
