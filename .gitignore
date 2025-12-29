@@ -1,1 +1,9 @@
 venv/
+masks/
+roi/
+roi_debug/
+runs/
+stenosis/
+test/
+train/
+valid/
