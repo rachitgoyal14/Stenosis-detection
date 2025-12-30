@@ -13,7 +13,7 @@ def detect_stenosis(image_bytes):
     img = cv2.imdecode(np.frombuffer(image_bytes, np.uint8), cv2.IMREAD_COLOR)
 
     # Run inference
-    results = yolo_model(img, conf=0.05, device=0)
+    results = yolo_model(img, conf=0.7, device=0)
 
     if len(results[0].boxes) == 0:
         return {"detected": False}
