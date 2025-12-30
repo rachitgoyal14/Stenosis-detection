@@ -100,7 +100,7 @@ YOLO Stenosis Detection (fast)
   Skip image (store as normal)
 ```
 
-```bash
+```mermaid
 flowchart LR
     A[DICOM Upload] --> B[DICOM Ingest & Frame Extraction]
     B --> C[YOLO Stenosis Detection Model]
@@ -113,7 +113,7 @@ flowchart LR
     I --> J[Doctor Actions<br/>Accept / Review / Edit]
 ```
 Doctor's flow
-```bash
+```mermaid
 flowchart TD
     A[Upload DICOM Folder] --> B[AI Processing Starts]
     B --> C[Findings Editor]
@@ -135,7 +135,7 @@ flowchart TD
     O --> P[Download PDF / Export / Send to EHR]
 ```
 Natural Language Report Flow
-```bash
+```mermaid
 flowchart TD
     A[Doctor Dictates Text / Voice] --> B[Speech-to-Text]
     B --> C[Structured Findings JSON]
@@ -148,7 +148,7 @@ flowchart TD
     I --> J[Export PDF / DICOM-SR]
 ```
 Application Flow:
-```bash
+```mermaid
 flowchart LR
     A[Dashboard] --> B[Findings Editor]
     B --> C[Study Page]
@@ -159,3 +159,79 @@ flowchart LR
     E --> F[AI Report Model]
     F --> G[Download / Export]
 ```
+
+
+flowchart LR
+    subgraph DATA_FLOW[DATA FLOW]
+        A[DICOM Upload]
+        B[DICOM Ingest & Frame Extraction]
+        C[YOLO Stenosis Detection Model]
+        D[Detections + Confidence Scores<br/>+ Timestamps]
+        E[Frame Ranking Engine]
+        F[Findings Editor]
+        G[Study Data Store]
+        H[Study Viewer UI]
+        I[Optimization]
+        J[Doctor Actions<br/>Accept / Review / Edit]
+
+        A --> B --> C --> D --> E --> F
+        F --> G --> H --> I --> J
+    end
+
+
+flowchart TD
+    subgraph DOCTOR_FLOW[Doctor’s Flow]
+        A[Upload DICOM Folder]
+        B[AI Processing Starts]
+        C[Findings Editor]
+        D[Doctor Clicks Study]
+        E[Study Page Opens]
+        F[Automated Highlighted Confidence Frames]
+        G[Visual Evidence Panel<br/>Artery Label + Confidence + EF]
+        H[Frame-Level Comparison View]
+        I{Doctor Decision}
+
+        J[Finalize Findings]
+        K[Inspector Mode]
+        L[Edit Frames / Add Notes]
+        M[Save Edits]
+        N[Natural Language Report Flow]
+        O[Generate One-Page Summary]
+        P[Download PDF / Export / Send to EHR]
+
+        A --> B --> C --> D --> E --> F --> G --> H --> I
+        I -->|Accept| J --> O --> P
+        I -->|Needs Review| K --> L --> M --> N
+    end
+
+
+flowchart TD
+    subgraph NLP_FLOW[Natural Language Report Flow]
+        A[Doctor Dictates Text / Voice]
+        B[Speech-to-Text]
+        C[Structured Findings JSON]
+        D[LLM Report Formatter]
+        E[Draft Impression & Recommendations]
+        F[Report Preview UI]
+        G[Doctor Edits Text]
+        H[Doctor Signs]
+        I[Final Report Saved]
+        J[Export PDF / DICOM-SR]
+
+        A --> B --> C --> D --> E --> F --> G --> H --> I --> J
+    end
+
+
+flowchart LR
+    subgraph APP_FLOW[Application Flow]
+        A[Dashboard]
+        B[Findings Editor]
+        C[Study Page]
+        D[Interactive Overlays]
+        E[Inspector Drawer]
+        F[AI Report Model]
+        G[Download / Export]
+
+        A --> B --> C
+        C --> D --> E --> F --> G
+    end
