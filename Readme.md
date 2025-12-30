@@ -160,7 +160,7 @@ flowchart LR
     F --> G[Download / Export]
 ```
 
-
+```bash
 flowchart LR
     subgraph DATA_FLOW[DATA FLOW]
         A[DICOM Upload]
@@ -177,8 +177,8 @@ flowchart LR
         A --> B --> C --> D --> E --> F
         F --> G --> H --> I --> J
     end
-
-
+```
+```bash
 flowchart TD
     subgraph DOCTOR_FLOW[Doctor’s Flow]
         A[Upload DICOM Folder]
@@ -204,7 +204,8 @@ flowchart TD
         I -->|Needs Review| K --> L --> M --> N
     end
 
-
+```
+```bash
 flowchart TD
     subgraph NLP_FLOW[Natural Language Report Flow]
         A[Doctor Dictates Text / Voice]
@@ -220,7 +221,9 @@ flowchart TD
 
         A --> B --> C --> D --> E --> F --> G --> H --> I --> J
     end
+```
 
+```bash
 
 flowchart LR
     subgraph APP_FLOW[Application Flow]
@@ -235,3 +238,5 @@ flowchart LR
         A --> B --> C
         C --> D --> E --> F --> G
     end
+
+```
