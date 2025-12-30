@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import json
 
-def extract_roi(image_bytes, yolo_out, filename, scale=1.5):
+def extract_roi(image_bytes, yolo_out, filename, scale=2):
     os.makedirs("storage/roi", exist_ok=True)
 
     img = cv2.imdecode(np.frombuffer(image_bytes, np.uint8), cv2.IMREAD_COLOR)
