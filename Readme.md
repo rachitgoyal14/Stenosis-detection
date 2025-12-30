@@ -85,3 +85,18 @@ So for each ROI, store:
 }
 ```
 
+```bash
+Doctor Uploads Images
+        ↓
+YOLO Stenosis Detection (fast)
+        ↓
+┌───────────────┐
+│ If stenosis   │── YES ──▶ Full pipeline
+│ detected?     │           (ROI → Mask → Diameter)
+└───────────────┘
+        │
+        NO
+        │
+  Skip image (store as normal)
+```
+
